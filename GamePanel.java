@@ -37,14 +37,18 @@ public class GamePanel extends JPanel implements ActionListener {
         this.setFocusable(true);
         this.addKeyListener(new MyKeyAdapter());
         // Initialize Play Again Button
+        this.setLayout(null); // Important for setBounds() to work
+
+// Initialize Play Again Button
         playAgainButton = new JButton("Play Again");
         playAgainButton.addActionListener(this);
         playAgainButton.setFocusable(false);
         playAgainButton.setVisible(false); // Initially hidden
-        playAgainButton.setLayout(null);
-        playAgainButton.setBounds(100,200,50,50);
 
+// Set size and position for bottom center
+        playAgainButton.setBounds((SCREEN_WIDTH - 150) / 2, SCREEN_HEIGHT - 100, 150, 40);
         this.add(playAgainButton);
+
 
         try {
             backgroundImage = ImageIO.read(new File("background.jpg"));
